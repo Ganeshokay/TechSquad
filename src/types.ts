@@ -1,11 +1,16 @@
 export type CategoryType =
   | 'All'
+  | 'Photography (PAC)'
+  | 'Modelling (Blaze)'
+  | 'Drama & Theatre (Mritunjay)'
+  | 'Cameras & Media'
+  | 'Fashion & Attire'
+  | 'Props & Stage Gear'
   | 'Electronics'
   | 'Textbooks'
   | 'Lab Gear'
-  | 'Cameras & Media'
-  | 'Sports & Outdoor'
   | 'Calculators'
+  | 'Sports & Outdoor'
   | 'Tools & Hardware'
   | 'Music & Audio';
 

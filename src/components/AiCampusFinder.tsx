@@ -10,10 +10,10 @@ interface AiCampusFinderProps {
 }
 
 const SAMPLE_QUERIES = [
-  'I have a robotics lab in 30 mins and need a multimeter & soldering iron',
-  'Shooting an outdoor festival film this weekend, need camera & lighting',
-  'Need a scientific calculator fx-991EX for my morning midterm',
-  'Going on a weekend trek, need camping tent and poles'
+  'Need a tripod and 4K mirrorless camera for campus film shoot',
+  'Looking for a stylish black tuxedo blazer or silk scarf for fashion walk',
+  'Need stage performance wireless headset mics & drama props for play act',
+  'Looking for a motorized camera gimbal and video recording shotgun mic'
 ];
 
 export const AiCampusFinder: React.FC<AiCampusFinderProps> = ({
@@ -46,16 +46,12 @@ export const AiCampusFinder: React.FC<AiCampusFinderProps> = ({
 
         // Contextual keywords mapping
         let contextMatch = false;
-        if (q.includes('film') || q.includes('photo') || q.includes('video') || q.includes('shoot') || q.includes('camera')) {
-          contextMatch = item.category === 'Cameras & Media';
-        } else if (q.includes('exam') || q.includes('math') || q.includes('calc') || q.includes('midterm')) {
-          contextMatch = item.category === 'Calculators' || item.category === 'Textbooks';
-        } else if (q.includes('chem') || q.includes('circuit') || q.includes('lab') || q.includes('meter')) {
-          contextMatch = item.category === 'Lab Gear' || item.category === 'Electronics' || item.category === 'Tools & Hardware';
-        } else if (q.includes('hike') || q.includes('camp') || q.includes('trek') || q.includes('tent')) {
-          contextMatch = item.category === 'Sports & Outdoor';
-        } else if (q.includes('audio') || q.includes('music') || q.includes('mic') || q.includes('jam')) {
-          contextMatch = item.category === 'Music & Audio';
+        if (q.includes('film') || q.includes('photo') || q.includes('video') || q.includes('shoot') || q.includes('camera') || q.includes('tripod') || q.includes('gimbal') || q.includes('pac')) {
+          contextMatch = item.category === 'Photography (PAC)';
+        } else if (q.includes('model') || q.includes('fashion') || q.includes('scarf') || q.includes('blazer') || q.includes('tuxedo') || q.includes('walk') || q.includes('blaze')) {
+          contextMatch = item.category === 'Modelling (Blaze)';
+        } else if (q.includes('drama') || q.includes('theatre') || q.includes('theater') || q.includes('stage') || q.includes('mic') || q.includes('prop') || q.includes('play') || q.includes('act') || q.includes('mritunjay')) {
+          contextMatch = item.category === 'Drama & Theatre (Mritunjay)';
         }
 
         return titleMatch || descMatch || catMatch || tagMatch || contextMatch;

@@ -197,7 +197,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 I am a Student
               </h3>
               <p className="text-xs text-[#43474e] leading-relaxed mb-4">
-                Borrow textbooks, scientific calculators, lab coats, and tech from clubs or peers.
+                Borrow what you need and share what someone else needs
               </p>
             </div>
 
@@ -235,7 +235,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 I Represent a Campus Club / Society
               </h3>
               <p className="text-xs text-[#43474e] leading-relaxed mb-4">
-                Publish available society gear (PAC cameras, MITRUN Pi kits, Dhwani amps) for students to borrow.
+                Publish all the available club gear for students to borrow
               </p>
             </div>
 
@@ -290,16 +290,13 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                         setStudentYear(user.year);
                         setStudentHostel(user.hostelRoom);
                       }}
-                      className={`p-2 rounded-xl border text-left flex flex-col gap-1 transition-all text-xs ${
+                      className={`p-2.5 rounded-xl border text-left flex flex-col gap-1 transition-all text-xs ${
                         studentId === user.studentId 
                           ? 'bg-[#002045] text-white border-[#002045] shadow-xs'
                           : 'bg-white hover:bg-[#d6e3ff]/60 border-[#adc7f7] text-[#002045]'
                       }`}
                     >
-                      <div className="flex items-center gap-1.5">
-                        <img src={user.avatar} alt={user.name} className="w-5 h-5 rounded-full object-cover shrink-0" />
-                        <span className="font-bold truncate text-[11px]">{user.name}</span>
-                      </div>
+                      <div className="font-bold truncate text-[11px]">{user.name}</div>
                       <span className={`font-mono text-[10px] truncate px-1.5 py-0.5 rounded ${
                         studentId === user.studentId ? 'bg-white/20 text-[#86f2e4]' : 'bg-[#eff4ff] text-[#006a61]'
                       }`}>
@@ -524,7 +521,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
               <div className="p-3 bg-[#86f2e4]/30 border border-[#86f2e4] rounded-xl text-xs text-[#006a61] flex items-center gap-2">
                 <Package className="w-4 h-4 shrink-0 text-[#006a61]" />
                 <span>
-                  <strong>Club Feature Access:</strong> You can list and publish available club gear (PAC cameras, MITRUN microcontrollers, audio interfaces) for BMU students.
+                  <strong>Club Feature Access:</strong> You can list and publish available club gear (PAC cameras & tripods, Blaze runway blazers & scarves, Mritunjay stage mics & props) for BMU students.
                 </span>
               </div>
 

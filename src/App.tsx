@@ -50,15 +50,56 @@ export default function App() {
   // Persistence / Local State
   const [user, setUser] = useState<UserProfile>(() => {
     const saved = localStorage.getItem('needit_user');
-    return saved ? JSON.parse(saved) : currentUser;
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved) as UserProfile;
+        // If student role with old avatar placeholder, update to college student photo
+        if (parsed.role === 'student' && (!parsed.avatar || parsed.avatar.includes('AB6AXuCDtUB'))) {
+          parsed.avatar = currentUser.avatar;
+          localStorage.setItem('needit_user', JSON.stringify(parsed));
+        }
+        return parsed;
+      } catch {
+        return currentUser;
+      }
+    }
+    return currentUser;
   });
 
   const [items, setItems] = useState<GearItem[]>(() => {
+    const version = localStorage.getItem('needit_data_version');
+    if (version !== 'v3_bmu_clubs') {
+      localStorage.setItem('needit_data_version', 'v3_bmu_clubs');
+      localStorage.setItem('needit_items', JSON.stringify(initialMarketplaceItems));
+      localStorage.setItem('needit_clubs', JSON.stringify(initialClubs));
+      return initialMarketplaceItems;
+    }
     const saved = localStorage.getItem('needit_items');
-    return saved ? JSON.parse(saved) : initialMarketplaceItems;
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved) as GearItem[];
+        // Filter out legacy p2p / out / robo items
+        const cleaned = parsed.filter(i => 
+          !i.id.startsWith('gear_p2p_') && 
+          !i.id.startsWith('gear_out_') && 
+          !i.id.startsWith('gear_robo_') && 
+          !i.id.startsWith('gear_chem_') && 
+          !i.id.startsWith('gear_calc_') && 
+          !i.id.startsWith('gear_book_')
+        );
+        return cleaned.length > 0 ? cleaned : initialMarketplaceItems;
+      } catch {
+        return initialMarketplaceItems;
+      }
+    }
+    return initialMarketplaceItems;
   });
 
   const [clubs, setClubs] = useState<CampusClub[]>(() => {
+    const version = localStorage.getItem('needit_data_version');
+    if (version !== 'v3_bmu_clubs') {
+      return initialClubs;
+    }
     const saved = localStorage.getItem('needit_clubs');
     return saved ? JSON.parse(saved) : initialClubs;
   });

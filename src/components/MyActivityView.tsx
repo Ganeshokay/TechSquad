@@ -9,7 +9,6 @@ import {
   ArrowDownLeft, 
   Calendar, 
   MapPin, 
-  Award, 
   RotateCcw, 
   Plus, 
   ExternalLink,
@@ -92,23 +91,9 @@ export const MyActivityView: React.FC<MyActivityViewProps> = ({
             </div>
           </div>
 
-          {/* Credibility Stats */}
-          <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full md:w-auto">
-            <div className="bg-[#eff4ff] p-3 sm:p-4 rounded-2xl text-center border border-[#adc7f7]/50">
-              <div className="text-lg sm:text-2xl font-headline font-black text-[#002045]">
-                {user.trustScore}★
-              </div>
-              <div className="text-[11px] text-[#43474e] font-semibold">Trust Score</div>
-            </div>
-
-            <div className="bg-[#eff4ff] p-3 sm:p-4 rounded-2xl text-center border border-[#adc7f7]/50">
-              <div className="text-lg sm:text-2xl font-headline font-black text-[#006a61]">
-                {user.onTimeRate}%
-              </div>
-              <div className="text-[11px] text-[#43474e] font-semibold">On-Time Return</div>
-            </div>
-
-            <div className="bg-[#eff4ff] p-3 sm:p-4 rounded-2xl text-center border border-[#adc7f7]/50">
+          {/* Activity Stats */}
+          <div className="w-full md:w-auto flex justify-start md:justify-end">
+            <div className="bg-[#eff4ff] p-3 sm:p-4 rounded-2xl text-center border border-[#adc7f7]/50 min-w-[130px]">
               <div className="text-lg sm:text-2xl font-headline font-black text-[#F59E0B]">
                 {isClub ? (user.completedBorrows + user.completedLends) : user.completedBorrows}
               </div>
@@ -117,24 +102,6 @@ export const MyActivityView: React.FC<MyActivityViewProps> = ({
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Badges Bar */}
-        <div className="mt-6 pt-6 border-t border-[#eff4ff] flex flex-wrap items-center gap-3">
-          <span className="text-xs font-bold text-[#002045] flex items-center gap-1">
-            <Award className="w-4 h-4 text-[#F59E0B]" /> Campus Badges:
-          </span>
-          {isClub && (
-            <span className="bg-[#f8f9ff] border border-[#c4c6cf]/60 text-[#002045] px-3 py-1 rounded-full text-xs font-medium">
-              🌟 Official Club Inventory Host
-            </span>
-          )}
-          <span className="bg-[#f8f9ff] border border-[#c4c6cf]/60 text-[#002045] px-3 py-1 rounded-full text-xs font-medium">
-            🎯 100% Reliable Borrower
-          </span>
-          <span className="bg-[#f8f9ff] border border-[#c4c6cf]/60 text-[#002045] px-3 py-1 rounded-full text-xs font-medium">
-            📚 Academic Equipment Partner
-          </span>
         </div>
       </section>
 
@@ -492,7 +459,6 @@ export const MyActivityView: React.FC<MyActivityViewProps> = ({
                   <span className="text-xs font-bold text-[#166534] bg-[#dcfce7] px-2.5 py-0.5 rounded-full flex items-center gap-1">
                     <CheckCircle className="w-3 h-3" /> Returned
                   </span>
-                  <div className="text-[10px] text-[#74777f] mt-1">+10 Trust Points</div>
                 </div>
               </div>
             ))}

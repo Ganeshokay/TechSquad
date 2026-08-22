@@ -32,10 +32,12 @@ export const RequestsView: React.FC<RequestsViewProps> = ({
 
   const categories: CategoryType[] = [
     'All',
+    'Photography (PAC)',
+    'Modelling (Blaze)',
+    'Drama & Theatre (Mritunjay)',
     'Electronics',
     'Textbooks',
     'Lab Gear',
-    'Cameras & Media',
     'Calculators',
     'Sports & Outdoor',
     'Tools & Hardware'
@@ -115,31 +117,6 @@ export const RequestsView: React.FC<RequestsViewProps> = ({
                   All Requests ({requests.length})
                 </span>
               </label>
-            </div>
-          </div>
-
-          {/* Categories Pill Box */}
-          <div className="bg-white rounded-2xl border border-[#c4c6cf]/70 p-5 shadow-[0px_4px_20px_rgba(26,54,93,0.05)]">
-            <h3 className="text-xs font-bold text-[#002045] uppercase tracking-wider mb-3.5">
-              Categories
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {categories.map((cat) => {
-                const isActive = categoryFilter === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => setCategoryFilter(cat)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                      isActive
-                        ? 'bg-[#1a365d] text-white shadow-sm'
-                        : 'bg-[#eff4ff] text-[#43474e] hover:bg-[#dce9ff] hover:text-[#002045]'
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                );
-              })}
             </div>
           </div>
 

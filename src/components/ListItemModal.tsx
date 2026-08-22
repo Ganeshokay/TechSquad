@@ -20,10 +20,12 @@ const PRESET_IMAGES = [
 ];
 
 const CATEGORIES: CategoryType[] = [
+  'Photography (PAC)',
+  'Modelling (Blaze)',
+  'Drama & Theatre (Mritunjay)',
   'Electronics',
   'Textbooks',
   'Lab Gear',
-  'Cameras & Media',
   'Calculators',
   'Sports & Outdoor',
   'Tools & Hardware',

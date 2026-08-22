@@ -160,65 +160,27 @@ export const Header: React.FC<HeaderProps> = ({
             {searchQuery && (
               <button
                 onClick={() => onSearchChange('')}
-                className="absolute right-14 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
             )}
-            <button
-              onClick={onOpenAiFinder}
-              className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-[#002045] hover:bg-[#1a365d] text-[#86f2e4] px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-sm transition-all"
-              title="AI Campus Item Finder"
-              id="header-ai-match-btn"
-            >
-              <Sparkles className="w-3 h-3 text-[#F59E0B]" />
-              <span>AI Find</span>
-            </button>
           </div>
         </div>
 
         {/* Action Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <button
-            onClick={onOpenAiFinder}
-            className="lg:hidden p-2 text-[#002045] bg-[#eff4ff] hover:bg-[#dce9ff] rounded-full transition-colors"
-            title="Ask AI Campus Finder"
-          >
-            <Sparkles className="w-4 h-4 text-[#F59E0B]" />
-          </button>
-
           {isClub ? (
             /* Club View Actions: List Item is Primary */
-            <>
-              <button
-                onClick={onOpenPostRequest}
-                className="hidden md:inline-flex items-center gap-1.5 border border-[#c4c6cf] text-[#43474e] hover:text-[#002045] hover:bg-[#eff4ff] px-3.5 py-1.5 rounded-full text-xs font-bold transition-all"
-                id="header-post-request-btn"
-              >
-                <Send className="w-3.5 h-3.5 text-[#F59E0B]" />
-                <span>Post Request</span>
-              </button>
-
-              <button
-                onClick={onOpenListItem}
-                className="bg-[#006a61] hover:bg-[#0b8276] text-white px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-sm hover:shadow transition-all flex items-center gap-1.5"
-                id="header-list-item-btn"
-              >
-                <Package className="w-4 h-4 text-[#86f2e4]" />
-                <span>List Available Item</span>
-              </button>
-            </>
-          ) : (
-            /* Student View Actions: Post Request */
             <button
-              onClick={onOpenPostRequest}
-              className="bg-[#F59E0B] hover:bg-[#d97706] text-white px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-sm hover:shadow transition-all flex items-center gap-1.5"
-              id="header-post-request-btn"
+              onClick={onOpenListItem}
+              className="bg-[#006a61] hover:bg-[#0b8276] text-white px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-sm hover:shadow transition-all flex items-center gap-1.5"
+              id="header-list-item-btn"
             >
-              <Send className="w-3.5 h-3.5" />
-              <span>Post Request</span>
+              <Package className="w-4 h-4 text-[#86f2e4]" />
+              <span>List Available Item</span>
             </button>
-          )}
+          ) : null}
 
           {/* Notifications Popover */}
           <div className="relative" ref={notifRef}>
